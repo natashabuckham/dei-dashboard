@@ -1,0 +1,24 @@
+[
+    {
+    "EmployerName": "EVIL CORP",
+    "EmployerId": 666,
+    "Address": "Evil Building, Evil Street, EVIL BOO",
+    "DiffMeanHourlyPercent": 17,
+    "DiffMedianHourlyPercent": 25.3,
+    "CompanyLinkToGPGInfo": "",
+    "EmployerSize": "500 to 999",
+    "CompanyName": "EVIL CORP",
+    "Year": "23-24"
+  },
+  {
+    "EmployerName": "ANGEL CORP",
+    "EmployerId": 4444,
+    "Address": "Angel Building, Angel Street, ANG EL",
+    "DiffMeanHourlyPercent": 2.49,
+    "DiffMedianHourlyPercent": 2.14,
+    "CompanyLinkToGPGInfo": "",
+    "EmployerSize": "500 to 999",
+    "CompanyName": "ANGEL CORP",
+    "Year": "23-24"
+  }
+]
