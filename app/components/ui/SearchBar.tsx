@@ -1,27 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CompanyData } from "@/lib/types";
 import { LuSearch } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import { companies } from "@/lib/search-data";
-
-function capitalizeWords(str: string) {
-  return str
-    .toLowerCase()
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+import { formatCompanyName } from "@/utils/companyUtils";
 
 function SearchBar() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const selectedFormattedName = useRef<string>("");
 
   const handleResultClick = (item: CompanyData) => {
-    setSearchTerm(item.EmployerName);
-    router.push(`/company/${item.EmployerId}`);
+    selectedFormattedName.current = formatCompanyName(item.EmployerName);
+    setSearchTerm(selectedFormattedName.current);
+    requestAnimationFrame(() => {
+      router.push(`/company/${item.EmployerId}`);
+    });
   };
 
   const filteredResults = searchTerm
@@ -44,7 +41,7 @@ function SearchBar() {
             onChange={(e) => setSearchTerm(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border text-gray-800 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -58,7 +55,7 @@ function SearchBar() {
                   onClick={() => handleResultClick(item)}
                 >
                   <h3 className="text-sm font-medium text-gray-800">
-                    {capitalizeWords(item.EmployerName)}{" "}
+                    {formatCompanyName(item.EmployerName)}
                   </h3>
                 </li>
               ))}
