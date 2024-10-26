@@ -60,7 +60,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               Ethnicity
             </h3>
             <ul className="space-y-2">
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
+              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
                 <strong>
                   {companyData.ethnicityStats.percentageEmployees}%{" "}
                 </strong>
@@ -76,14 +76,14 @@ const CompanyProfile = async ({ params }: { params: any }) => {
                 have a prayer room and{" "}
                 {companyData.ethnicityStats.holidays ? `do` : `don't`} allow
                 flexible working for religious reasons
-              </li>
+              </li> */}
             </ul>
           </div>
 
           <div className="statsBox genderStats">
             <h3 className="text-center text-2xl font-semibold mb-2">Gender</h3>
             <ul className="space-y-2">
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
+              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
                 {companyData.genderStats.percentageEmployees}% of employees are
                 women
               </li>
@@ -98,7 +98,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
                 They {companyData.genderStats.equalMatPatLeave ? `do` : `don't`}{" "}
                 have equal maternity and paternity leave
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -107,7 +107,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               LGBTQIA+
             </h3>
             <ul className="space-y-2">
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
+              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
                 {companyData.lgbtqStats.percentageEmployees}% are from an
                 LGBTQIA+ background
               </li>
@@ -121,7 +121,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
                 have a pronoun policy and they{" "}
                 {companyData.lgbtqStats.genderNeutralBathrooms ? `do` : `don't`}{" "}
                 have gender neutral bathrooms
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -130,7 +130,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               Disabilities
             </h3>
             <ul className="space-y-2">
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
+              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
                 {companyData.disabilityStats.percentageEmployees}% of employees
                 report they have a disability
               </li>
@@ -149,7 +149,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
                   ? `do`
                   : `don't`}{" "}
                 provide mental health support
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
