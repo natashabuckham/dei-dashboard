@@ -26,11 +26,8 @@ function SearchBar() {
 
   const filteredResults = searchTerm
     ? companies
-        .filter(
-          (item) =>
-            item.EmployerName.toLowerCase().includes(
-              searchTerm.toLowerCase(),
-            ) || item.Address.toLowerCase().includes(searchTerm.toLowerCase()),
+        .filter((item) =>
+          item.EmployerName.toLowerCase().includes(searchTerm.toLowerCase()),
         )
         .slice(0, 5)
     : [];
