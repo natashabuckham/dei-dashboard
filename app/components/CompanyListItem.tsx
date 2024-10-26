@@ -26,6 +26,7 @@ function CompanyListItem({
   //   const myStatCategory = mapping[dataCategory];
 
   const output = mapping.filter((entry) => entry.category == dataCategory);
+  // @ts-expect-error - to do
   const myContent: string = output[0].content[specificStat as string];
   console.log("content", typeof myContent);
 
