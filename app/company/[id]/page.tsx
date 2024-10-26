@@ -2,6 +2,11 @@ import path from "path";
 import fs from "fs";
 import { CompanyData } from "../../../lib/types";
 import CompanyListItem from "../../components/CompanyListItem";
+import { formatCompanyName } from "@/utils/companyUtils";
+import { EthnicityStats } from "@/app/components/stats/EthnicityStats";
+import { GenderStats } from "@/app/components/stats/GenderStats";
+import { LGBTQStats } from "@/app/components/stats/LGBTQStats";
+import { DisabilityStats } from "@/app/components/stats/DisabilityStats";
 
 const fetchData = async () => {
   const filePath = path.join(
@@ -32,7 +37,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
   return (
     <div className="max-w-6xl mx-auto p-4 min-h-screen">
       <h1 className="text-center p-4 text-3xl font-bold">
-        {companyData.EmployerName}
+        {formatCompanyName(companyData.EmployerName)}
       </h1>
       <div className="text-center p-4">
         <p>{companyData.overview}</p>
@@ -51,6 +56,14 @@ const CompanyProfile = async ({ params }: { params: any }) => {
 
         {/* Stats Section */}
         <div className="flex flex-col space-y-4 w-full md:w-1/2 h-full overflow-y-auto">
+          <EthnicityStats companyData={companyData} />
+
+          <GenderStats companyData={companyData} />
+
+          <LGBTQStats companyData={companyData} />
+
+          <DisabilityStats companyData={companyData} />
+
           <div className="statsBox ethnicityStats">
             <h3 className="text-2xl font-semibold mb-2 text-center">
               Ethnicity
