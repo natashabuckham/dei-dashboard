@@ -1,3 +1,9 @@
+import { CompanyData } from "@/lib/types";
+
+type ExceptionMap = {
+  [key: string]: string;
+};
+
 export const cleanCompanyName = (name: string): string => {
   return (
     name
@@ -19,7 +25,7 @@ export const formatCompanyName = (name: string): string => {
 
   // Handle special cases before capitalization
   const exceptions = ["UK", "USA", "LLC", "PLC"];
-  const exceptionMap = exceptions.reduce(
+  const exceptionMap: ExceptionMap = exceptions.reduce(
     (acc, curr) => ({
       ...acc,
       [curr.toLowerCase()]: curr,
@@ -31,29 +37,26 @@ export const formatCompanyName = (name: string): string => {
     .toLowerCase()
     .split(" ")
     .map((word) => {
-      // Check if word is in our exceptions
       if (exceptionMap[word.toLowerCase()]) {
         return exceptionMap[word.toLowerCase()];
       }
-      // Handle hyphenated words
+
       if (word.includes("-")) {
         return word
           .split("-")
           .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
           .join("-");
       }
-      // Default capitalization
+
       return word.charAt(0).toUpperCase() + word.slice(1);
     })
     .join(" ");
 };
 
-// Optional: Type for search results with cleaned names
 export type CleanedCompanyData = {
   EmployerId: number;
   EmployerName: string;
   CleanedName: string;
-  // ... other fields from CompanyData
 };
 
 // Optional: Helper to process all companies
