@@ -1,3 +1,14 @@
+const genderPayHelperFunction = (payGap: number) => {
+  const payGapSign = Math.sign(payGap);
+  if (payGapSign === -1) {
+    return `${payGap * -1}% higher than`;
+  }
+  if (payGapSign === 0) {
+    return `equal to`;
+  }
+  return `${payGap}% lower than`;
+};
+
 function CompanyListItem({
   dataPoint,
   dataCategory,
@@ -7,12 +18,17 @@ function CompanyListItem({
   dataCategory: string;
   specificStat: string;
 }) {
-  if (dataPoint == undefined)
+  if (dataPoint == undefined) {
     return (
       <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
         Data not available
       </li>
     );
+  }
+
+  if (specificStat === "payGap") {
+    dataPoint = genderPayHelperFunction(dataPoint as number);
+  }
 
   const listItemTextMap = [
     {
@@ -37,7 +53,7 @@ function CompanyListItem({
       category: "genderStats",
       content: {
         percentageEmployees: `${dataPoint}% of employees are women`,
-        payGap: `The gender pay gap is ${dataPoint}`,
+        payGap: `Women's median hourly pay is ${dataPoint} men’s`,
         employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for women`,
         equalMatPatLeave: `They ${dataPoint ? `do` : `don't`} have equal maternity and paternity leave`,
       },

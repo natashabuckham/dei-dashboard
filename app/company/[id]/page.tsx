@@ -88,7 +88,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
                 specificStat={"percentageEmployees"}
               />
               <CompanyListItem
-                dataPoint={genderStats?.payGap}
+                dataPoint={companyData.DiffMedianHourlyPercent}
                 dataCategory={"genderStats"}
                 specificStat={"payGap"}
               />
