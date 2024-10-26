@@ -49,7 +49,7 @@ const CompanyProfile = async ({ params }: { params: any }) => {
 
       <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-200px)]">
         {/* House Container */}
-        <div className="w-full md:w-1/2 h-full">
+        <div className="w-full md:w-1/2 h-40 md:h-full">
           <div className="grid grid-cols-2 gap-4 w-full h-full">
             <div className="bg-orange-500 rounded-lg"></div>
             <div className="bg-green-600 rounded-lg"></div>
