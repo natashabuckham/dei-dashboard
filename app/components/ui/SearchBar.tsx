@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import { CompanyData } from "@/lib/types";
 import { LuSearch } from "react-icons/lu";
 import { useRouter } from "next/navigation";
