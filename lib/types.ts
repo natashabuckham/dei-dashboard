@@ -11,16 +11,16 @@ export interface SearchBarProps {
   debounceMs?: number;
 }
 
-export interface payGapDataEntry {
-    EmployerName: string;
-    EmployerId: number;
-    Address: string;
-    DiffMeanHourlyPercent: string;
-    DiffMedianHourlyPercent: string;
-    CompanyLinkToGPGInfo: string;
-    EmployerSize: string;
-    CompanyName: string;
-    Year: string;
-}[]
+export type payGapDataEntry = {
+  EmployerName: string;
+  EmployerId: number;
+  Address: string;
+  DiffMeanHourlyPercent: string;
+  DiffMedianHourlyPercent: string;
+  CompanyLinkToGPGInfo: string;
+  EmployerSize: string;
+  CompanyName: string;
+  Year: string;
+}[];
 
-export type payGapData = payGapDataEntry[]
+export type payGapData = payGapDataEntry[];
