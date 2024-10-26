@@ -21,4 +21,4 @@ export interface CompanyData {
   EmployerSize: string;
   CompanyName: string;
   Year: string;
-};
+}
