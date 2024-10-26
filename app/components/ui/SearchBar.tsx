@@ -6,6 +6,14 @@ import { LuSearch } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import { companies } from "@/lib/search-data";
 
+function capitalizeWords(str: string) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 function SearchBar() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -53,20 +61,8 @@ function SearchBar() {
                   onClick={() => handleResultClick(item)}
                 >
                   <h3 className="text-sm font-medium text-gray-800">
-                    {item.EmployerName}
+                    {capitalizeWords(item.EmployerName)}{" "}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">{item.Address}</p>
-                  <div className="mt-1 flex gap-2 flex-wrap text-xs">
-                    <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded">
-                      Mean: {item.DiffMeanHourlyPercent}%
-                    </span>
-                    <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded">
-                      Median: {item.DiffMedianHourlyPercent}%
-                    </span>
-                    <span className="inline-block px-2 py-1 bg-gray-100 text-gray-800 rounded">
-                      {item.EmployerSize}
-                    </span>
-                  </div>
                 </li>
               ))}
             </ul>
