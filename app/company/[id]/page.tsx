@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { CompanyData } from "../../../lib/types";
-// import CompanyListItem from "../../components/CompanyListItem";
+import CompanyListItem from "../../components/CompanyListItem";
 
 const fetchData = async () => {
   const filePath = path.join(
@@ -23,15 +23,11 @@ const CompanyProfile = async ({ params }: { params: any }) => {
   // Handle if object not found
   const companyData = data.find((item: CompanyData) => item.EmployerId == id);
   if (!companyData) {
-    return <p>Object not found</p>;
+    return <p>Company not found</p>;
   }
 
-  // const { genderStats } = companyData.genderStats;
-  //       <CompanyListItem
-  //         dataPoint={companyData.genderStats?.percentageEmployees}
-  //         dataCategory={"genderStats"}
-  //         specificStat={"percentageEmployees"}
-  //       />
+  const { genderStats, ethnicityStats, disabilityStats, lgbtqiaStats } =
+    companyData;
 
   return (
     <div className="max-w-6xl mx-auto p-4 min-h-screen">
@@ -60,45 +56,52 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               Ethnicity
             </h3>
             <ul className="space-y-2">
-              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                <strong>
-                  {companyData.ethnicityStats.percentageEmployees}%{" "}
-                </strong>
-                of employees are from a BAME background
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.EmployerName}{" "}
-                {companyData.ethnicityStats.employeeNetwork ? `do` : `don't`}{" "}
-                have an employee network for staff from BAME backgrounds
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                They {companyData.ethnicityStats.prayerRoom ? `do` : `don't`}{" "}
-                have a prayer room and{" "}
-                {companyData.ethnicityStats.holidays ? `do` : `don't`} allow
-                flexible working for religious reasons
-              </li> */}
+              <CompanyListItem
+                dataPoint={ethnicityStats?.percentageEmployees}
+                dataCategory={"ethnicityStats"}
+                specificStat={"percentageEmployees"}
+              />
+              <CompanyListItem
+                dataPoint={ethnicityStats?.employeeNetwork}
+                dataCategory={"ethnicityStats"}
+                specificStat={"employeeNetwork"}
+              />
+              <CompanyListItem
+                dataPoint={ethnicityStats?.prayerRoom}
+                dataCategory={"ethnicityStats"}
+                specificStat={"prayerRoom"}
+              />
+              <CompanyListItem
+                dataPoint={ethnicityStats?.holidays}
+                dataCategory={"ethnicityStats"}
+                specificStat={"holidays"}
+              />
             </ul>
           </div>
 
           <div className="statsBox genderStats">
             <h3 className="text-center text-2xl font-semibold mb-2">Gender</h3>
             <ul className="space-y-2">
-              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.genderStats.percentageEmployees}% of employees are
-                women
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                The gender pay gap is {companyData.genderStats.payGap}%
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.employerName}{" "}
-                {companyData.genderStats.employeeNetwork ? `do` : `don't`} have
-                an employee network for women
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                They {companyData.genderStats.equalMatPatLeave ? `do` : `don't`}{" "}
-                have equal maternity and paternity leave
-              </li> */}
+              <CompanyListItem
+                dataPoint={genderStats?.percentageEmployees}
+                dataCategory={"genderStats"}
+                specificStat={"percentageEmployees"}
+              />
+              <CompanyListItem
+                dataPoint={genderStats?.payGap}
+                dataCategory={"genderStats"}
+                specificStat={"payGap"}
+              />
+              <CompanyListItem
+                dataPoint={genderStats?.employeeNetwork}
+                dataCategory={"genderStats"}
+                specificStat={"employeeNetwork"}
+              />
+              <CompanyListItem
+                dataPoint={genderStats?.equalMatPatLeave}
+                dataCategory={"genderStats"}
+                specificStat={"equalMatPatLeave"}
+              />
             </ul>
           </div>
 
@@ -107,21 +110,26 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               LGBTQIA+
             </h3>
             <ul className="space-y-2">
-              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.lgbtqStats.percentageEmployees}% are from an
-                LGBTQIA+ background
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.employerName}{" "}
-                {companyData.lgbtqStats.employeeNetwork ? `do` : `don't`} have
-                an employee network for LGBTQIA+ employees
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                They {companyData.lgbtqStats.pronounPolicy ? `do` : `don't`}{" "}
-                have a pronoun policy and they{" "}
-                {companyData.lgbtqStats.genderNeutralBathrooms ? `do` : `don't`}{" "}
-                have gender neutral bathrooms
-              </li> */}
+              <CompanyListItem
+                dataPoint={lgbtqiaStats?.percentageEmployees}
+                dataCategory={"genderStats"}
+                specificStat={"percentageEmployees"}
+              />
+              <CompanyListItem
+                dataPoint={lgbtqiaStats?.employeeNetwork}
+                dataCategory={"lgbtqiaStats"}
+                specificStat={"employeeNetwork"}
+              />
+              <CompanyListItem
+                dataPoint={lgbtqiaStats?.pronounPolicy}
+                dataCategory={"lgbtqiaStats"}
+                specificStat={"pronounPolicy"}
+              />
+              <CompanyListItem
+                dataPoint={lgbtqiaStats?.genderNeutralBathrooms}
+                dataCategory={"lgbtqiaStats"}
+                specificStat={"genderNeutralBathrooms"}
+              />
             </ul>
           </div>
 
@@ -130,26 +138,26 @@ const CompanyProfile = async ({ params }: { params: any }) => {
               Disabilities
             </h3>
             <ul className="space-y-2">
-              {/* <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.disabilityStats.percentageEmployees}% of employees
-                report they have a disability
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                {companyData.employerName}{" "}
-                {companyData.disabilityStats.employeeNetwork ? `do` : `don't`}{" "}
-                have an employee network for employees with disabilities
-              </li>
-              <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-                They{" "}
-                {companyData.disabilityStats.disabilityTraining
-                  ? `do`
-                  : `don't`}{" "}
-                provide disability training and they{" "}
-                {companyData.disabilityStats.mentalHealthSupport
-                  ? `do`
-                  : `don't`}{" "}
-                provide mental health support
-              </li> */}
+              <CompanyListItem
+                dataPoint={disabilityStats?.percentageEmployees}
+                dataCategory={"disabilityStats"}
+                specificStat={"percentageEmployees"}
+              />
+              <CompanyListItem
+                dataPoint={disabilityStats?.employeeNetwork}
+                dataCategory={"disabilityStats"}
+                specificStat={"employeeNetwork"}
+              />
+              <CompanyListItem
+                dataPoint={disabilityStats?.disabilityTraining}
+                dataCategory={"disabilityStats"}
+                specificStat={"disabilityTraining"}
+              />
+              <CompanyListItem
+                dataPoint={disabilityStats?.mentalHealthSupport}
+                dataCategory={"disabilityStats"}
+                specificStat={"mentalHealthSupport"}
+              />
             </ul>
           </div>
         </div>

@@ -23,7 +23,7 @@ interface genderStats {
   employeeNetwork?: boolean;
   equalMatPatLeave?: boolean;
 }
-interface lgbtqStats {
+interface lgbtqiaStats {
   percentageEmployees?: string;
   employeeNetwork?: boolean;
   pronounPolicy?: boolean;
@@ -53,7 +53,7 @@ export interface CompanyData {
   disabilityRanking?: 7;
   ethnicityStats?: ethnicityStats;
   genderStats?: genderStats;
-  lgbtqStats?: lgbtqStats;
+  lgbtqiaStats?: lgbtqiaStats;
   disabilityStats?: disabilityStats;
 }
 
