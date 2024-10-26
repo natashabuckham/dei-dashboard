@@ -1,15 +1,4 @@
-export interface SearchResult {
-  id: number;
-  title: string;
-  description: string;
-}
-
-export interface SearchBarProps {
-  onSelect?: (result: SearchResult) => void;
-  placeholder?: string;
-  minSearchLength?: number;
-  debounceMs?: number;
-}
+import companiesData from "./database/PayGapData.json";
 
 export interface CompanyData {
   EmployerName: string;
@@ -21,4 +10,6 @@ export interface CompanyData {
   EmployerSize: string;
   CompanyName: string;
   Year: string;
-};
+}
+
+export const companies = companiesData as CompanyData[];
