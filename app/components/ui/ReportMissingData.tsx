@@ -23,7 +23,7 @@ export const ReportMissingData = ({ metric }: ReportMissingDataProps) => {
 
   const handleSubmit = () => {
     toast.success(
-      `Thank you! We've received your report about ${metric.toLowerCase()} at ${companyName}.`,
+      `Thank you! We've received your report about ${metric.toLowerCase()} at ${formattedCompanyName}.`,
       {
         position: "top-center",
         autoClose: 5000,
