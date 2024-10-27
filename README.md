@@ -4,11 +4,11 @@
 
 <h3>Team Members</h3>
 
-- Agrahad James
-- [Isabella Mitchell](https://github.com/Isabella-Mitchell)
-- [Natasha Buckham](https://github.com/natashabuckham)
-- [Ruksan Emirali](https://www.linkedin.com/in/ruksan-emirali-3703912a1/)
-- [Joshua Tuddenham](https://example.com/joshua)
+[Agrahad James](https://www.linkedin.com/in/angharad-james-b5842b19a/)
+[Isabella Mitchell](https://github.com/Isabella-Mitchell)
+[Natasha Buckham](https://github.com/natashabuckham)
+[Ruksan Emirali](https://www.linkedin.com/in/ruksan-emirali-3703912a1/)
+[Joshua Tuddenham](https://example.com/joshua)
 
 > Transparent insights build diverse cultures
 
