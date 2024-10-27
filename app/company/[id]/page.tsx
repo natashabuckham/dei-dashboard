@@ -6,6 +6,7 @@ import { EthnicityStats } from "@/app/components/stats/EthnicityStats";
 import { GenderStats } from "@/app/components/stats/GenderStats";
 import { LGBTQIAStats } from "@/app/components/stats/LGBTQIAStats";
 import { DisabilityStats } from "@/app/components/stats/DisabilityStats";
+import PayGapBarChart from "@/app/components/charts/PayGapBarChart";
 
 const fetchData = async () => {
   const filePath = path.join(
@@ -60,6 +61,24 @@ const CompanyProfile = async ({ params }: { params: any }) => {
 
           <DisabilityStats companyData={companyData} />
         </div>
+        {/* Graph*/}
+      </div>
+
+      <div className="text-center mt-16 mb-16">
+        <h2 className="text-center p-4 text-3xl font-bold">
+          Gender Pay Gap Over Time
+        </h2>
+        <PayGapBarChart companyData={companyData} />
+      </div>
+
+      <div className="text-center mt-16 mb-16">
+        <h2 className="text-center p-4 text-3xl font-bold">Ask a question</h2>
+        <p className="text-sm font-medium">
+          Not found what you are looking for? Ask an employee anonymously
+        </p>
+        <button className="m-4 bg-white hover:bg-gray-200 dark:bg-gray-800 p-5 rounded-xl border border-black dark:border-gray-700">
+          Ask a question
+        </button>
       </div>
     </div>
   );
