@@ -6,7 +6,6 @@ import { EthnicityStats } from "./stats/EthnicityStats";
 import { LGBTQIAStats } from "./stats/LGBTQIAStats";
 import { DisabilityStats } from "./stats/DisabilityStats";
 import PayGapBarChart from "./charts/PayGapBarChart";
-import Image from "next/image";
 
 function CompanyPageContext() {
   const {
@@ -19,8 +18,16 @@ function CompanyPageContext() {
   return (
     <div className="max-w-6xl mx-auto p-4 min-h-screen">
       <h1 className="text-center p-4 text-3xl font-bold">
-        {" "}
-        {formattedCompanyName}
+        {/* Check if the company is "Angel Corp" and display the image instead */}
+        {formattedCompanyName === "Angel Corp" ? (
+          <img
+            src="/angel-corp.svg"
+            alt="Angel Corp Logo"
+            className="mx-auto w-1/2 h-auto"
+          />
+        ) : (
+          formattedCompanyName
+        )}
       </h1>
       <div className="text-center p-4">
         <p>{companyData.overview}</p>
@@ -28,19 +35,16 @@ function CompanyPageContext() {
 
       <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-200px)]">
         {/* House Container */}
-        <div className="w-full md:w-1/2 h-40 md:h-full flex items-center justify-center">
-          <Image
+        <div className="w-full md:w-1/2 h-32 md:h-full flex flex-col md:flex-row items-center justify-start md:justify-center">
+          <img
             src="/house-good.svg"
             alt="House Good"
-            className="rounded-lg object-contain"
-            layout="responsive"
-            width={200}
-            height={200}
+            className="rounded-lg object-contain w-3/4 h-28 md:w-auto h-auto md:h-full"
           />
         </div>
 
         {/* Stats Section */}
-        <div className="flex flex-col space-y-4 w-full md:w-1/2 h-full overflow-y-auto">
+        <div className="flex flex-col space-y-4 w-full md:w-1/2 h-full overflow-y-auto bg-white">
           <GenderStats />
 
           <EthnicityStats />
