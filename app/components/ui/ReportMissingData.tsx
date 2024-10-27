@@ -18,7 +18,7 @@ interface ReportMissingDataProps {
 }
 
 export const ReportMissingData = ({ metric }: ReportMissingDataProps) => {
-  const { companyName } = useCompany();
+  const { formattedCompanyName } = useCompany();
   const [open, setOpen] = useState(false);
 
   const handleSubmit = () => {
@@ -51,7 +51,7 @@ export const ReportMissingData = ({ metric }: ReportMissingDataProps) => {
         <DialogHeader>
           <DialogTitle>Report Missing Data</DialogTitle>
           <DialogDescription>
-            Help us improve our data about {companyName}&apos;s{" "}
+            Help us improve our data about {formattedCompanyName}&apos;s{" "}
             {metric.toLowerCase()}. If you have information about this metric,
             please share it with us.
           </DialogDescription>

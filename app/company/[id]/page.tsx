@@ -8,7 +8,6 @@ import CompanyPageContext from "@/app/components/CompanyPageContext";
 const fetchData = async (year: string = "") => {
   const fileName = year ? `PayGapData${year}.json` : "PayGapData.json";
   const filePath = path.join(process.cwd(), "/lib/database/", fileName);
-
   const jsonData = await fs.promises.readFile(filePath, "utf8");
   const database: CompanyData[] = JSON.parse(jsonData);
   return database;
@@ -16,7 +15,7 @@ const fetchData = async (year: string = "") => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function Page(props: any) {
-  const id = props.params.id;
+  const id = await props.params.id;
 
   const [currentData, data2122, data2223] = await Promise.all([
     fetchData(),
