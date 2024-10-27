@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<h2>Foundations 📊</h2>
 
-First, run the development server:
+<h3>Team Members</h3>
+
+- Agrahad James
+- [Isabella Mitchell](https://github.com/Isabella-Mitchell)
+- [Natasha Buckham](https://github.com/natashabuckham)
+- [Ruksan Emirali](https://www.linkedin.com/in/ruksan-emirali-3703912a1/)
+- [Joshua Tuddenham](https://example.com/joshua)
+
+> Transparent insights build diverse cultures
+
+A comprehensive dashboard for tracking and visualizing workplace Diversity, Equity, and Inclusion metrics through employee self-reporting.
+
+Built in 24 hours as part of the [Jump Start Hackathon](https://www.hackathonparty.com/hackathons/6).
+
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Material-UI](https://img.shields.io/badge/Material--UI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/)
+[![Shadcn](https://img.shields.io/badge/shadcn-%23000?style=for-the-badge&logo=shadcn&logoColor=white)](https://shadcn.com/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-%2338B2E0.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+Foundations enables organizations to track, measure, and improve their diversity and inclusion initiatives through transparent metrics and employee self-reporting. The platform provides insights across four key dimensions: Gender, Ethnicity, LGBTQIA+, and Disability inclusion.
+
+</div>
+
+## 🚀 Features
+
+### Core Metrics Tracking
+
+- **Gender Equality Metrics**
+
+  - Employee gender distribution
+  - Mean & median hourly pay differences
+  - Maternity/Paternity leave policies
+  - Return-to-work support programs
+  - Mentorship initiatives
+
+- **Ethnic Diversity Tracking**
+
+  - Workforce ethnic composition
+  - Cultural celebration initiatives
+  - Prayer room availability
+  - Holiday accommodation policies
+  - Cultural competency training
+
+- **LGBTQIA+ Inclusion**
+
+  - LGBTQIA+ representation
+  - Pronoun policy implementation
+  - Partner benefits tracking
+  - Transition support programs
+  - Gender-neutral facilities
+
+- **Disability Inclusion**
+  - Disability representation
+  - Workplace adjustments
+  - Mental health support
+  - Flexible working policies
+  - Disability Confident status
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/dei-dashboard.git
+```
+
+2. Install dependencies:
+
+```bash
+cd dei-dashboard
+npm install
+```
+
+3. Configure environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
