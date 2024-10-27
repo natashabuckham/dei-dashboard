@@ -7,45 +7,51 @@ import {
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
+import {
+  showRepresentationPercentage,
+  showAdditionalStats,
+} from "../../../utils/flags";
 
 interface EthnicityStatsProps {
   companyData: CompanyData;
 }
 
 export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
-  // change to show more categories
-  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Ethnicity & Cultural Inclusion"
       footerText="UK employers are not legally required to publish diversity data"
     >
-      <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
-        <Accordion type="single" collapsible>
-          <AccordionItem value="percentageEmployees" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Workforce Diversity</span>
-                {companyData.ethnicityStats?.percentageEmployees ? (
-                  <span className="text-lg font-semibold text-primary">
-                    {companyData.ethnicityStats.percentageEmployees}%
+      {showRepresentationPercentage && (
+        <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="percentageEmployees" className="border-0">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="text-sm font-medium">
+                    Workforce Diversity
                   </span>
-                ) : (
-                  <span className="text-sm text-gray-500">Not reported</span>
-                )}
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                The percentage of employees from ethnic minority backgrounds.
-                While reporting isn&apos;t mandatory in the UK, tracking this
-                data helps organizations understand their diversity profile and
-                set meaningful inclusion goals.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </li>
+                  {companyData.ethnicityStats?.percentageEmployees ? (
+                    <span className="text-lg font-semibold text-primary">
+                      {companyData.ethnicityStats.percentageEmployees}%
+                    </span>
+                  ) : (
+                    <span className="text-sm text-gray-500">Not reported</span>
+                  )}
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                  The percentage of employees from ethnic minority backgrounds.
+                  While reporting isn&apos;t mandatory in the UK, tracking this
+                  data helps organizations understand their diversity profile
+                  and set meaningful inclusion goals.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </li>
+      )}
 
       <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
         <Accordion type="single" collapsible>

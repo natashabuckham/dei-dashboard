@@ -8,44 +8,50 @@ import {
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
+import {
+  showRepresentationPercentage,
+  showAdditionalStats,
+} from "../../../utils/flags";
 
 interface GenderStatsProps {
   companyData: CompanyData;
 }
 
 export const GenderStats = ({ companyData }: GenderStatsProps) => {
-  // change to show more categories
-  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Gender Equality"
       footerText="UK employers are required to report gender pay gap data annually"
     >
-      <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
-        <Accordion type="single" collapsible>
-          <AccordionItem value="percentageEmployees" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Gender Distribution</span>
-                {companyData.genderStats?.percentageEmployees ? (
-                  <span className="text-lg font-semibold text-primary">
-                    {companyData.genderStats.percentageEmployees}% women
+      {showRepresentationPercentage && (
+        <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="percentageEmployees" className="border-0">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="text-sm font-medium">
+                    Gender Distribution
                   </span>
-                ) : (
-                  <span className="text-sm text-gray-500">Not reported</span>
-                )}
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                The percentage of women in the workforce. This key metric helps
-                track gender representation and progress toward gender balance
-                across the organization.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </li>
+                  {companyData.genderStats?.percentageEmployees ? (
+                    <span className="text-lg font-semibold text-primary">
+                      {companyData.genderStats.percentageEmployees}% women
+                    </span>
+                  ) : (
+                    <span className="text-sm text-gray-500">Not reported</span>
+                  )}
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                  The percentage of women in the workforce. This key metric
+                  helps track gender representation and progress toward gender
+                  balance across the organization.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </li>
+      )}
 
       <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
         <Accordion type="single" collapsible>
