@@ -104,9 +104,12 @@ function CompanyListItem({
       category: "genderStats",
       content: {
         percentageEmployees: `${dataPoint}%`,
-        payGap: `Women's median hourly pay is ${dataPoint} men’s`,
-        employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
-        equalMatPatLeave: `${dataPoint ? `Equal policy ✅` : `Not equal policy ❌`}`,
+        payGap: `Women's median hourly pay is ${dataPoint} men's`,
+        employeeNetwork: `${dataPoint ? "Available ✅" : "No network available ❌"}`,
+        equalMatPatLeave: `${dataPoint ? "Equal policy ✅" : "Not equal policy ❌"}`,
+        returnToWorkSupport: dataPoint ? "Available ✅" : "Not available ❌",
+        womenInLeadership: `${dataPoint}%`,
+        mentorshipProgram: dataPoint ? "Available ✅" : "Not available ❌",
       },
     },
     {
