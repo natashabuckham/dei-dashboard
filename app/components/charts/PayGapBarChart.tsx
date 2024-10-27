@@ -25,7 +25,6 @@ const PayGapBarChart = async ({
 }: {
   companyData: CompanyData;
 }) => {
-  console.log("companyData", companyData);
   let payGap2122;
   let payGap2223;
   let mensPay2122;
