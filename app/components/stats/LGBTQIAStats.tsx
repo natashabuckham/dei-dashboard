@@ -112,7 +112,7 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
-          {/* {showAdditionalStats && (
+          {showAdditionalStats && (
             <>
               <AccordionItem value="partnerBenefits" className="border-0">
                 <AccordionTrigger className="hover:no-underline">
@@ -180,7 +180,7 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
                 </AccordionContent>
               </AccordionItem>
             </>
-          )} */}
+          )}
         </Accordion>
       </li>
     </StatsBox>

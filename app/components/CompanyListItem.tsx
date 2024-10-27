@@ -110,6 +110,7 @@ function CompanyListItem({
 
   if (!categoryContent)
     return <span className="text-sm text-gray-500">Data unavailable</span>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const textContent: any =
     // @ts-expect-error - to do
     categoryContent[0].content[specificStat as string];
