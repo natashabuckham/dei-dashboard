@@ -4,7 +4,7 @@
 
 🏆 [Winner, Jump Start Hackathon](https://www.hackathonparty.com/hackathons/6/projects/98) 🏆
 
-![Hackathon Image](/docs/Hackathon.jpeg)
+<img src="/docs/Hackathon.jpeg" alt="Hackathon Image" style="width:70%; height:auto;">
 
 [Hackathon Presentation](https://www.canva.com/design/DAGUwcSXP2U/RbnHgAx2E4-SKeEzIeYNNw/)
 
