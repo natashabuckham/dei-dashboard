@@ -7,12 +7,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
+import CompanyListItem from "../CompanyListItem";
 
 interface DisabilityStatsProps {
   companyData: CompanyData;
 }
 
 export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
+  // change to show more categories
+  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Disability & Accessibility"
@@ -49,12 +52,12 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
           <AccordionItem value="employeeNetwork" className="border-0">
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Support Network</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.employeeNetwork
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <span className="text-sm font-medium">Staff Network</span>
+                <CompanyListItem
+                  dataPoint={companyData.disabilityStats?.employeeNetwork}
+                  dataCategory={"disabilityStats"}
+                  specificStat={"employeeNetwork"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -72,11 +75,11 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                 <span className="text-sm font-medium">
                   Workplace Adjustments
                 </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.workplaceAdjustments
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.disabilityStats?.workplaceAdjustments}
+                  dataCategory={"disabilityStats"}
+                  specificStat={"workplaceAdjustments"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -93,11 +96,11 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                 <span className="text-sm font-medium">
                   Mental Health Support
                 </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.mentalHealthSupport
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.disabilityStats?.mentalHealthSupport}
+                  dataCategory={"disabilityStats"}
+                  specificStat={"mentalHealthSupport"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -108,69 +111,74 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
+          {showAdditionalStats && (
+            <>
+              <AccordionItem value="disabilityTraining" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Accessibility Training
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.disabilityStats?.disabilityTraining
+                        ? "Provided"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Training programs that educate employees about disability
+                    awareness, inclusive behaviors, and accessibility
+                    considerations.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="disabilityTraining" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">
-                  Accessibility Training
-                </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.disabilityTraining
-                    ? "Provided"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Training programs that educate employees about disability
-                awareness, inclusive behaviors, and accessibility
-                considerations.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="flexibleWorking" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Flexible Working
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.disabilityStats?.flexibleWorking
+                        ? "Available"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Options for flexible working arrangements, including
+                    adjustable hours, remote work, and modified schedules.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="flexibleWorking" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Flexible Working</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.flexibleWorking
-                    ? "Available"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Options for flexible working arrangements, including adjustable
-                hours, remote work, and modified schedules.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="disabilityConfident" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">
-                  Disability Confident
-                </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.disabilityConfident
-                    ? "Certified"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                A UK government certification that recognizes employers
-                committed to recruiting, retaining, and developing disabled
-                employees.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="disabilityConfident" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Disability Confident
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.disabilityStats?.disabilityConfident
+                        ? "Certified"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    A UK government certification that recognizes employers
+                    committed to recruiting, retaining, and developing disabled
+                    employees.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </>
+          )}
         </Accordion>
       </li>
     </StatsBox>

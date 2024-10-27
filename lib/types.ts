@@ -10,7 +10,6 @@ export interface SearchBarProps {
   minSearchLength?: number;
   debounceMs?: number;
 }
-
 export interface CompanyData {
   EmployerName: string;
   overview?: string;
@@ -28,7 +27,7 @@ export interface CompanyData {
   disabilityRanking?: 7;
   ethnicityStats?: EthnicityStats;
   genderStats?: GenderStats;
-  lgbtqStats?: LGBTQStats;
+  lgbtqiaStats?: LGBTQIAStats;
   disabilityStats?: DisabilityStats;
 }
 
@@ -44,7 +43,6 @@ export interface EthnicityStats {
 
 export interface GenderStats {
   percentageEmployees?: number;
-  payGap?: number;
   employeeNetwork?: boolean;
   equalMatPatLeave?: boolean;
   returnToWorkSupport?: boolean;
@@ -52,7 +50,7 @@ export interface GenderStats {
   mentorshipProgram?: boolean;
 }
 
-export interface LGBTQStats {
+export interface LGBTQIAStats {
   percentageEmployees?: number;
   employeeNetwork?: boolean;
   pronounPolicy?: boolean;

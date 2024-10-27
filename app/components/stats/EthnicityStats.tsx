@@ -6,12 +6,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
+import CompanyListItem from "../CompanyListItem";
 
 interface EthnicityStatsProps {
   companyData: CompanyData;
 }
 
 export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
+  // change to show more categories
+  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Ethnicity & Cultural Inclusion"
@@ -50,11 +53,11 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
                 <span className="text-sm font-medium">Staff Network</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.employeeNetwork
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.ethnicityStats?.employeeNetwork}
+                  dataCategory={"ethnicityStats"}
+                  specificStat={"employeeNetwork"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -70,11 +73,11 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
                 <span className="text-sm font-medium">Prayer Spaces</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.prayerRoom
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.ethnicityStats?.prayerRoom}
+                  dataCategory={"ethnicityStats"}
+                  specificStat={"prayerRoom"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -92,11 +95,11 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
                 <span className="text-sm font-medium">
                   Religious Observance
                 </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.holidays
-                    ? "Supported"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.ethnicityStats?.holidays}
+                  dataCategory={"ethnicityStats"}
+                  specificStat={"holidays"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -107,68 +110,75 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
+          {showAdditionalStats && (
+            <>
+              <AccordionItem value="culturalAwareness" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Cultural Training
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.ethnicityStats?.culturalTraining
+                        ? "Available"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Training programs that promote cultural awareness, address
+                    unconscious bias, and develop inclusive leadership skills
+                    across the organization.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="culturalAwareness" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Cultural Training</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.culturalTraining
-                    ? "Available"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Training programs that promote cultural awareness, address
-                unconscious bias, and develop inclusive leadership skills across
-                the organization.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="mentorship" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Targeted Mentoring
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.ethnicityStats?.mentoringProgram
+                        ? "Available"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Specific mentoring initiatives designed to support career
+                    development and progression for employees from
+                    underrepresented ethnic backgrounds.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="mentorship" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Targeted Mentoring</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.mentoringProgram
-                    ? "Available"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Specific mentoring initiatives designed to support career
-                development and progression for employees from underrepresented
-                ethnic backgrounds.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="celebrations" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">
-                  Cultural Celebrations
-                </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.ethnicityStats?.culturalCelebrations
-                    ? "Active"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Regular events and initiatives celebrating different cultures,
-                including heritage months, cultural festivals, and educational
-                programs.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="celebrations" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Cultural Celebrations
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.ethnicityStats?.culturalCelebrations
+                        ? "Active"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Regular events and initiatives celebrating different
+                    cultures, including heritage months, cultural festivals, and
+                    educational programs.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </>
+          )}
         </Accordion>
       </li>
     </StatsBox>

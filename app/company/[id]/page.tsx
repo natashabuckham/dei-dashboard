@@ -1,11 +1,10 @@
 import path from "path";
 import fs from "fs";
 import { CompanyData } from "../../../lib/types";
-// import CompanyListItem from "../../components/CompanyListItem";
 import { formatCompanyName } from "@/utils/companyUtils";
 import { EthnicityStats } from "@/app/components/stats/EthnicityStats";
 import { GenderStats } from "@/app/components/stats/GenderStats";
-import { LGBTQStats } from "@/app/components/stats/LGBTQStats";
+import { LGBTQIAStats } from "@/app/components/stats/LGBTQIAStats";
 import { DisabilityStats } from "@/app/components/stats/DisabilityStats";
 
 const fetchData = async () => {
@@ -28,15 +27,8 @@ const CompanyProfile = async ({ params }: { params: any }) => {
   // Handle if object not found
   const companyData = data.find((item: CompanyData) => item.EmployerId == id);
   if (!companyData) {
-    return <p>Object not found</p>;
+    return <p>Company not found</p>;
   }
-
-  // const { genderStats } = companyData.genderStats;
-  //       <CompanyListItem
-  //         dataPoint={companyData.genderStats?.percentageEmployees}
-  //         dataCategory={"genderStats"}
-  //         specificStat={"percentageEmployees"}
-  //       />
 
   return (
     <div className="max-w-6xl mx-auto p-4 min-h-screen">
@@ -60,11 +52,11 @@ const CompanyProfile = async ({ params }: { params: any }) => {
 
         {/* Stats Section */}
         <div className="flex flex-col space-y-4 w-full md:w-1/2 h-full overflow-y-auto">
-          <EthnicityStats companyData={companyData} />
-
           <GenderStats companyData={companyData} />
 
-          <LGBTQStats companyData={companyData} />
+          <EthnicityStats companyData={companyData} />
+
+          <LGBTQIAStats companyData={companyData} />
 
           <DisabilityStats companyData={companyData} />
         </div>
