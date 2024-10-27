@@ -8,7 +8,7 @@ export const identity = [
   "Age",
 ];
 
-export const industryCategories = [
+export const industries = [
   "Technology",
   "Healthcare",
   "Finance",

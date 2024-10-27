@@ -6,6 +6,7 @@ import { EthnicityStats } from "./stats/EthnicityStats";
 import { LGBTQIAStats } from "./stats/LGBTQIAStats";
 import { DisabilityStats } from "./stats/DisabilityStats";
 import PayGapBarChart from "./charts/PayGapBarChart";
+import Image from "next/image";
 
 function CompanyPageContext() {
   const {
@@ -27,13 +28,15 @@ function CompanyPageContext() {
 
       <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-200px)]">
         {/* House Container */}
-        <div className="w-full md:w-1/2 h-40 md:h-full">
-          <div className="grid grid-cols-2 gap-4 w-full h-full">
-            <div className="bg-orange-500 rounded-lg"></div>
-            <div className="bg-green-600 rounded-lg"></div>
-            <div className="bg-red-500 rounded-lg"></div>
-            <div className="bg-green-400 rounded-lg"></div>
-          </div>
+        <div className="w-full md:w-1/2 h-40 md:h-full flex items-center justify-center">
+          <Image
+            src="/house-good.svg"
+            alt="House Good"
+            className="rounded-lg object-contain"
+            layout="responsive"
+            width={200}
+            height={200}
+          />
         </div>
 
         {/* Stats Section */}
