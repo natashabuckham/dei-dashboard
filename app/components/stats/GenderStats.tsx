@@ -1,4 +1,5 @@
-// components/stats/GenderStats.tsx
+"use client";
+
 import { StatsBox } from "./StatsBox";
 import {
   Accordion,
@@ -6,18 +7,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
 import {
   showRepresentationPercentage,
   showAdditionalStats,
 } from "../../../utils/flags";
+import { useCompany } from "@/context/CompanyContext";
 
-interface GenderStatsProps {
-  companyData: CompanyData;
-}
+export const GenderStats = () => {
+  const { companyData } = useCompany();
 
-export const GenderStats = ({ companyData }: GenderStatsProps) => {
   return (
     <StatsBox
       title="Gender Equality"
@@ -121,11 +120,11 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
                 <AccordionTrigger className="hover:no-underline">
                   <div className="flex items-center justify-between w-full pr-4">
                     <span className="text-sm font-medium">Return-to-Work</span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.genderStats?.returnToWorkSupport
-                        ? "Supported"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.genderStats?.returnToWorkSupport}
+                      dataCategory="genderStats"
+                      specificStat="returnToWorkSupport"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -143,11 +142,11 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
                     <span className="text-sm font-medium">
                       Leadership Roles
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.genderStats?.womenInLeadership
-                        ? `${companyData.genderStats.womenInLeadership}%`
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.genderStats?.womenInLeadership}
+                      dataCategory="genderStats"
+                      specificStat="womenInLeadership"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -165,11 +164,11 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
                     <span className="text-sm font-medium">
                       Mentorship Program
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.genderStats?.mentorshipProgram
-                        ? "Available"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.genderStats?.mentorshipProgram}
+                      dataCategory="genderStats"
+                      specificStat="mentorshipProgram"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>

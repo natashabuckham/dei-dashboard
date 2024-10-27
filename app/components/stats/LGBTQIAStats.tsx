@@ -1,4 +1,5 @@
-// components/stats/LGBTQStats.tsx
+"use client";
+
 import { StatsBox } from "./StatsBox";
 import {
   Accordion,
@@ -6,18 +7,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
 import {
   showRepresentationPercentage,
   showAdditionalStats,
 } from "../../../utils/flags";
+import { useCompany } from "@/context/CompanyContext";
 
-interface LGBTQIAStatsProps {
-  companyData: CompanyData;
-}
-
-export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
+export const LGBTQIAStats = () => {
+  const { companyData } = useCompany();
   return (
     <StatsBox
       title="LGBTQIA+ Inclusion"
@@ -124,11 +122,11 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
                     <span className="text-sm font-medium">
                       Partner Benefits
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.lgbtqiaStats?.partnerBenefits
-                        ? "Equal policy"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.lgbtqiaStats?.partnerBenefits}
+                      dataCategory="lgbtqiaStats"
+                      specificStat="partnerBenefits"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -146,11 +144,11 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
                     <span className="text-sm font-medium">
                       Transition Support
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.lgbtqiaStats?.transitionSupport
-                        ? "Available"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.lgbtqiaStats?.transitionSupport}
+                      dataCategory="lgbtqiaStats"
+                      specificStat="transitionSupport"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -168,11 +166,11 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
                     <span className="text-sm font-medium">
                       Pride Participation
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.lgbtqiaStats?.prideParticipation
-                        ? "Active"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.lgbtqiaStats?.prideParticipation}
+                      dataCategory="lgbtqiaStats"
+                      specificStat="prideParticipation"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>

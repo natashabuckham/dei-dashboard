@@ -1,3 +1,7 @@
+import { ReportMissingData } from "./ui/ReportMissingData";
+import { getMetricName } from "@/utils/metricUtils";
+import { StatCategory } from "@/lib/types";
+
 const genderPayHelperFunction = (payGap: number) => {
   const payGapSign = Math.sign(payGap);
   if (payGapSign === -1) {
@@ -19,7 +23,14 @@ function CompanyListItem({
   specificStat: string;
 }) {
   if (dataPoint == undefined) {
-    return <span className="text-sm text-gray-500">Not Reported</span>;
+    return (
+      <span className="text-sm text-gray-500">
+        {" "}
+        <ReportMissingData
+          metric={getMetricName(specificStat, dataCategory as StatCategory)}
+        />
+      </span>
+    );
   }
 
   if (specificStat === "payGap") {
@@ -72,6 +83,9 @@ function CompanyListItem({
         pronounPolicy: `${dataPoint ? `In place ✅` : `No policy in place ❌`}`,
         employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
         genderNeutralBathrooms: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+        partnerBenefits: `${dataPoint ? `Equal policy ✅` : `No equal policy ❌`}`,
+        transitionSupport: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+        prideParticipation: `${dataPoint ? `Active ✅` : `Not active ❌`}`,
       },
     },
     {
@@ -81,6 +95,9 @@ function CompanyListItem({
         holidays: `${dataPoint ? `Supported ✅` : `Not supported ❌`}`,
         employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
         prayerRoom: `${dataPoint ? `Available ✅` : `No prayer spaces available ❌`}`,
+        culturalTraining: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+        mentoringProgram: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+        culturalCelebrations: `${dataPoint ? `Active ✅` : `Not active ❌`}`,
       },
     },
     {
@@ -100,6 +117,8 @@ function CompanyListItem({
         employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
         mentalHealthSupport: `${dataPoint ? `Available ✅` : `No support available ❌`}`,
         workplaceAdjustments: `${dataPoint ? `Provided ✅` : `Not provided ❌`}`,
+        flexibleWorking: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+        disabilityConfident: `${dataPoint ? `Certified ✅` : `Not certified ❌`}`,
       },
     },
   ];

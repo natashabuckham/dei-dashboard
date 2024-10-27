@@ -71,3 +71,9 @@ export interface DisabilityStats {
 }
 
 export type Database = CompanyData[];
+
+export type StatCategory =
+  | "lgbtqiaStats"
+  | "ethnicityStats"
+  | "genderStats"
+  | "disabilityStats";
