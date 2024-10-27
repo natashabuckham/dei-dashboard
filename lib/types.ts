@@ -27,7 +27,7 @@ export interface CompanyData {
   disabilityRanking?: 7;
   ethnicityStats?: EthnicityStats;
   genderStats?: GenderStats;
-  lgbtqiaStats?: LGBTQStats;
+  lgbtqiaStats?: LGBTQIAStats;
   disabilityStats?: DisabilityStats;
 }
 
@@ -43,7 +43,6 @@ export interface EthnicityStats {
 
 export interface GenderStats {
   percentageEmployees?: number;
-  payGap?: number;
   employeeNetwork?: boolean;
   equalMatPatLeave?: boolean;
   returnToWorkSupport?: boolean;
@@ -51,7 +50,7 @@ export interface GenderStats {
   mentorshipProgram?: boolean;
 }
 
-export interface LGBTQStats {
+export interface LGBTQIAStats {
   percentageEmployees?: number;
   employeeNetwork?: boolean;
   pronounPolicy?: boolean;

@@ -19,11 +19,7 @@ function CompanyListItem({
   specificStat: string;
 }) {
   if (dataPoint == undefined) {
-    return (
-      <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-        Data not available
-      </li>
-    );
+    return <span className="text-sm text-gray-500">Not Reported</span>;
   }
 
   if (specificStat === "payGap") {
@@ -68,26 +64,57 @@ function CompanyListItem({
       },
     },
   ];
+  const listItemTextMapSlimline = [
+    {
+      category: "lgbtqiaStats",
+      content: {
+        percentageEmployees: `${dataPoint}%`,
+        pronounPolicy: `${dataPoint ? `In place ✅` : `No policy in place ❌`}`,
+        employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
+        genderNeutralBathrooms: `${dataPoint ? `Available ✅` : `Not available ❌`}`,
+      },
+    },
+    {
+      category: "ethnicityStats",
+      content: {
+        percentageEmployees: `${dataPoint}%`,
+        holidays: `${dataPoint ? `Supported ✅` : `Not supported ❌`}`,
+        employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
+        prayerRoom: `${dataPoint ? `Available ✅` : `No prayer spaces available ❌`}`,
+      },
+    },
+    {
+      category: "genderStats",
+      content: {
+        percentageEmployees: `${dataPoint}%`,
+        payGap: `Women's median hourly pay is ${dataPoint} men’s`,
+        employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
+        equalMatPatLeave: `${dataPoint ? `Equal policy ✅` : `Not equal policy ❌`}`,
+      },
+    },
+    {
+      category: "disabilityStats",
+      content: {
+        percentageEmployees: `${dataPoint}%`,
+        disabilityTraining: `${dataPoint ? `Provided ✅` : `Not provided ❌`}`,
+        employeeNetwork: `${dataPoint ? `Available ✅` : `No network available ❌`}`,
+        mentalHealthSupport: `${dataPoint ? `Available ✅` : `No support available ❌`}`,
+        workplaceAdjustments: `${dataPoint ? `Provided ✅` : `Not provided ❌`}`,
+      },
+    },
+  ];
 
-  const categoryContent = listItemTextMap.filter(
+  const categoryContent = listItemTextMapSlimline.filter(
     (item) => item?.category == dataCategory,
   );
 
   if (!categoryContent)
-    return (
-      <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-        Data unavailable
-      </li>
-    );
+    return <span className="text-sm text-gray-500">Data unavailable</span>;
   const textContent: string =
     // @ts-expect-error - to do
     categoryContent[0].content[specificStat as string];
 
-  return (
-    <li className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow">
-      {textContent}
-    </li>
-  );
+  return <span className="text-sm text-gray-500">{textContent}</span>;
 }
 
 export default CompanyListItem;

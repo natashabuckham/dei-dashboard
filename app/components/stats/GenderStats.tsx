@@ -7,12 +7,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
+import CompanyListItem from "../CompanyListItem";
 
 interface GenderStatsProps {
   companyData: CompanyData;
 }
 
 export const GenderStats = ({ companyData }: GenderStatsProps) => {
+  // change to show more categories
+  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Gender Equality"
@@ -50,11 +53,11 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
                 <span className="text-sm font-medium">Gender Pay Gap</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.payGap
-                    ? `${companyData.genderStats.payGap}%`
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.DiffMedianHourlyPercent}
+                  dataCategory={"genderStats"}
+                  specificStat={"payGap"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -69,14 +72,12 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
           <AccordionItem value="employeeNetwork" className="border-0">
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">
-                  Women&apos;s Network
-                </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.employeeNetwork
-                    ? "Available"
-                    : "Not reported"}
-                </span>
+                <span className="text-sm font-medium">Staff Network</span>
+                <CompanyListItem
+                  dataPoint={companyData.genderStats?.employeeNetwork}
+                  dataCategory={"genderStats"}
+                  specificStat={"employeeNetwork"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -92,11 +93,11 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center justify-between w-full pr-4">
                 <span className="text-sm font-medium">Parental Leave</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.equalMatPatLeave
-                    ? "Equal policy"
-                    : "Not reported"}
-                </span>
+                <CompanyListItem
+                  dataPoint={companyData.genderStats?.equalMatPatLeave}
+                  dataCategory={"genderStats"}
+                  specificStat={"equalMatPatLeave"}
+                />
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -108,64 +109,73 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="returnToWorkSupport" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Return-to-Work</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.returnToWorkSupport
-                    ? "Supported"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Programs and policies supporting employees returning from
-                parental leave, including flexible working arrangements, phased
-                return, and ongoing support.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+          {showAdditionalStats && (
+            <>
+              <AccordionItem value="returnToWorkSupport" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">Return-to-Work</span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.genderStats?.returnToWorkSupport
+                        ? "Supported"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Programs and policies supporting employees returning from
+                    parental leave, including flexible working arrangements,
+                    phased return, and ongoing support.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="womenInLeadership" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Leadership Roles</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.womenInLeadership
-                    ? `${companyData.genderStats.womenInLeadership}%`
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                The percentage of women in senior leadership positions,
-                indicating progress in gender diversity at decision-making
-                levels of the organization.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="womenInLeadership" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Leadership Roles
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.genderStats?.womenInLeadership
+                        ? `${companyData.genderStats.womenInLeadership}%`
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    The percentage of women in senior leadership positions,
+                    indicating progress in gender diversity at decision-making
+                    levels of the organization.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
 
-          <AccordionItem value="mentorshipProgram" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">Mentorship Program</span>
-                <span className="text-sm text-gray-500">
-                  {companyData.genderStats?.mentorshipProgram
-                    ? "Available"
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                Structured mentoring programs designed to support women&apos;s
-                career development and progression into leadership roles.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem value="mentorshipProgram" className="border-0">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center justify-between w-full pr-4">
+                    <span className="text-sm font-medium">
+                      Mentorship Program
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {companyData.genderStats?.mentorshipProgram
+                        ? "Available"
+                        : "Not reported"}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                    Structured mentoring programs designed to support
+                    women&apos;s career development and progression into
+                    leadership roles.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </>
+          )}
         </Accordion>
       </li>
     </StatsBox>
