@@ -110,7 +110,7 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
-          {showAdditionalStats && (
+          {/* {showAdditionalStats && (
             <>
               <AccordionItem value="culturalAwareness" className="border-0">
                 <AccordionTrigger className="hover:no-underline">
@@ -178,7 +178,7 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
                 </AccordionContent>
               </AccordionItem>
             </>
-          )}
+          )} */}
         </Accordion>
       </li>
     </StatsBox>

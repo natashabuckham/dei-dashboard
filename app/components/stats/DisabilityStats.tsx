@@ -111,7 +111,7 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
-          {showAdditionalStats && (
+          {/* {showAdditionalStats && (
             <>
               <AccordionItem value="disabilityTraining" className="border-0">
                 <AccordionTrigger className="hover:no-underline">
@@ -178,7 +178,7 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                 </AccordionContent>
               </AccordionItem>
             </>
-          )}
+          )} */}
         </Accordion>
       </li>
     </StatsBox>

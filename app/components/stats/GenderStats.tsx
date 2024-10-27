@@ -109,7 +109,7 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
             </AccordionContent>
           </AccordionItem>
 
-          {showAdditionalStats && (
+          {/* {showAdditionalStats && (
             <>
               <AccordionItem value="returnToWorkSupport" className="border-0">
                 <AccordionTrigger className="hover:no-underline">
@@ -175,7 +175,7 @@ export const GenderStats = ({ companyData }: GenderStatsProps) => {
                 </AccordionContent>
               </AccordionItem>
             </>
-          )}
+          )} */}
         </Accordion>
       </li>
     </StatsBox>
