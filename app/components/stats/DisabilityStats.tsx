@@ -8,44 +8,48 @@ import {
 } from "@/components/ui/accordion";
 import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
+import {
+  showRepresentationPercentage,
+  showAdditionalStats,
+} from "../../../utils/flags";
 
 interface DisabilityStatsProps {
   companyData: CompanyData;
 }
 
 export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
-  // change to show more categories
-  const showAdditionalStats = false;
   return (
     <StatsBox
       title="Disability & Accessibility"
       footerText="UK employers are encouraged to join the Disability Confident scheme"
     >
-      <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
-        <Accordion type="single" collapsible>
-          <AccordionItem value="percentageEmployees" className="border-0">
-            <AccordionTrigger className="hover:no-underline">
-              <div className="flex items-center justify-between w-full pr-4">
-                <span className="text-sm font-medium">
-                  Disability Representation
-                </span>
-                <span className="text-sm text-gray-500">
-                  {companyData.disabilityStats?.percentageEmployees
-                    ? `${companyData.disabilityStats.percentageEmployees}%`
-                    : "Not reported"}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
-                The percentage of employees who have declared a disability or
-                long-term health condition. This metric helps track workplace
-                diversity and inclusion.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </li>
+      {showRepresentationPercentage && (
+        <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="percentageEmployees" className="border-0">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="text-sm font-medium">
+                    Disability Representation
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    {companyData.disabilityStats?.percentageEmployees
+                      ? `${companyData.disabilityStats.percentageEmployees}%`
+                      : "Not reported"}
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
+                  The percentage of employees who have declared a disability or
+                  long-term health condition. This metric helps track workplace
+                  diversity and inclusion.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </li>
+      )}
 
       <li className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
         <Accordion type="single" collapsible>
