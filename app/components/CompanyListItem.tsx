@@ -26,44 +26,44 @@ function CompanyListItem({
     dataPoint = genderPayHelperFunction(dataPoint as number);
   }
 
-  const listItemTextMap = [
-    {
-      category: "lgbtqiaStats",
-      content: {
-        percentageEmployees: `${dataPoint}% are from an LGBTQIA+ background`,
-        pronounPolicy: `They ${dataPoint ? `do` : `don't`} have a pronoun policy`,
-        employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for LGBTQIA+ employees`,
-        genderNeutralBathrooms: `They ${dataPoint ? `do` : `don't`} have gender neutral bathrooms`,
-      },
-    },
-    {
-      category: "ethnicityStats",
-      content: {
-        percentageEmployees: `${dataPoint}% of employees are from a BAME background`,
-        holidays: `They ${dataPoint ? `do` : `don't`} allow flexible working for religious reasons`,
-        employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for staff from BAME backgrounds`,
-        prayerRoom: `They ${dataPoint ? `do` : `don't`} have a prayer room`,
-      },
-    },
-    {
-      category: "genderStats",
-      content: {
-        percentageEmployees: `${dataPoint}% of employees are women`,
-        payGap: `Women's median hourly pay is ${dataPoint} men’s`,
-        employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for women`,
-        equalMatPatLeave: `They ${dataPoint ? `do` : `don't`} have equal maternity and paternity leave`,
-      },
-    },
-    {
-      category: "disabilityStats",
-      content: {
-        percentageEmployees: `${dataPoint}% of employees report they have a disability`,
-        disabilityTraining: `They ${dataPoint ? `do` : `don't`} provide disability training`,
-        employeeNetwork: `They ${dataPoint ? `do` : `don't`}  have an employee network for employees with disabilities`,
-        mentalHealthSupport: `They ${dataPoint ? `do` : `don't`} provide mental health support`,
-      },
-    },
-  ];
+  // const listItemTextMap = [
+  //   {
+  //     category: "lgbtqiaStats",
+  //     content: {
+  //       percentageEmployees: `${dataPoint}% are from an LGBTQIA+ background`,
+  //       pronounPolicy: `They ${dataPoint ? `do` : `don't`} have a pronoun policy`,
+  //       employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for LGBTQIA+ employees`,
+  //       genderNeutralBathrooms: `They ${dataPoint ? `do` : `don't`} have gender neutral bathrooms`,
+  //     },
+  //   },
+  //   {
+  //     category: "ethnicityStats",
+  //     content: {
+  //       percentageEmployees: `${dataPoint}% of employees are from a BAME background`,
+  //       holidays: `They ${dataPoint ? `do` : `don't`} allow flexible working for religious reasons`,
+  //       employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for staff from BAME backgrounds`,
+  //       prayerRoom: `They ${dataPoint ? `do` : `don't`} have a prayer room`,
+  //     },
+  //   },
+  //   {
+  //     category: "genderStats",
+  //     content: {
+  //       percentageEmployees: `${dataPoint}% of employees are women`,
+  //       payGap: `Women's median hourly pay is ${dataPoint} men’s`,
+  //       employeeNetwork: `They ${dataPoint ? `do` : `don't`} have an employee network for women`,
+  //       equalMatPatLeave: `They ${dataPoint ? `do` : `don't`} have equal maternity and paternity leave`,
+  //     },
+  //   },
+  //   {
+  //     category: "disabilityStats",
+  //     content: {
+  //       percentageEmployees: `${dataPoint}% of employees report they have a disability`,
+  //       disabilityTraining: `They ${dataPoint ? `do` : `don't`} provide disability training`,
+  //       employeeNetwork: `They ${dataPoint ? `do` : `don't`}  have an employee network for employees with disabilities`,
+  //       mentalHealthSupport: `They ${dataPoint ? `do` : `don't`} provide mental health support`,
+  //     },
+  //   },
+  // ];
   const listItemTextMapSlimline = [
     {
       category: "lgbtqiaStats",
@@ -110,7 +110,7 @@ function CompanyListItem({
 
   if (!categoryContent)
     return <span className="text-sm text-gray-500">Data unavailable</span>;
-  const textContent: string =
+  const textContent: any =
     // @ts-expect-error - to do
     categoryContent[0].content[specificStat as string];
 
