@@ -112,7 +112,6 @@ export const LGBTQIAStats = ({ companyData }: LGBTQIAStatsProps) => {
               </p>
             </AccordionContent>
           </AccordionItem>
-
           {showAdditionalStats && (
             <>
               <AccordionItem value="partnerBenefits" className="border-0">
