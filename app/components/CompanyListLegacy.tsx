@@ -3,7 +3,7 @@ import CompanyListItem from "../components/CompanyListItem";
 const CompanyListLegacy = async ({ params }: { params: any }) => {
   return (
     <div>
-      <div className="statsBox ethnicityStats">
+      {/* <div className="statsBox ethnicityStats">
         <h3 className="text-2xl font-semibold mb-2 text-center">Ethnicity</h3>
         <ul className="space-y-2">
           <CompanyListItem
@@ -107,7 +107,9 @@ const CompanyListLegacy = async ({ params }: { params: any }) => {
             specificStat={"mentalHealthSupport"}
           />
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };
+
+export default CompanyListLegacy;
