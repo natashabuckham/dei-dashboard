@@ -1,3 +1,5 @@
+"use client";
+
 import { StatsBox } from "./StatsBox";
 import {
   Accordion,
@@ -5,18 +7,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
 import {
   showRepresentationPercentage,
   showAdditionalStats,
 } from "../../../utils/flags";
+import { useCompany } from "@/context/CompanyContext";
 
-interface EthnicityStatsProps {
-  companyData: CompanyData;
-}
+export const EthnicityStats = () => {
+  const { companyData } = useCompany();
 
-export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
   return (
     <StatsBox
       title="Ethnicity & Cultural Inclusion"
@@ -124,11 +124,11 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
                     <span className="text-sm font-medium">
                       Cultural Training
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.ethnicityStats?.culturalTraining
-                        ? "Available"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.ethnicityStats?.culturalTraining}
+                      dataCategory="ethnicityStats"
+                      specificStat="culturalTraining"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -146,11 +146,11 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
                     <span className="text-sm font-medium">
                       Targeted Mentoring
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.ethnicityStats?.mentoringProgram
-                        ? "Available"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.ethnicityStats?.mentoringProgram}
+                      dataCategory="ethnicityStats"
+                      specificStat="mentoringProgram"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -168,11 +168,13 @@ export const EthnicityStats = ({ companyData }: EthnicityStatsProps) => {
                     <span className="text-sm font-medium">
                       Cultural Celebrations
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.ethnicityStats?.culturalCelebrations
-                        ? "Active"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={
+                        companyData.ethnicityStats?.culturalCelebrations
+                      }
+                      dataCategory="ethnicityStats"
+                      specificStat="culturalCelebrations"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>

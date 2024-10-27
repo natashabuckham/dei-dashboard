@@ -1,4 +1,5 @@
-// components/stats/DisabilityStats.tsx
+"use client";
+
 import { StatsBox } from "./StatsBox";
 import {
   Accordion,
@@ -6,18 +7,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CompanyData } from "@/lib/types";
 import CompanyListItem from "../CompanyListItem";
 import {
   showRepresentationPercentage,
   showAdditionalStats,
 } from "../../../utils/flags";
+import { useCompany } from "@/context/CompanyContext";
 
-interface DisabilityStatsProps {
-  companyData: CompanyData;
-}
+export const DisabilityStats = () => {
+  const { companyData } = useCompany();
 
-export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
   return (
     <StatsBox
       title="Disability & Accessibility"
@@ -123,11 +122,13 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                     <span className="text-sm font-medium">
                       Accessibility Training
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.disabilityStats?.disabilityTraining
-                        ? "Provided"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={
+                        companyData.disabilityStats?.disabilityTraining
+                      }
+                      dataCategory="disabilityStats"
+                      specificStat="disabilityTraining"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -145,11 +146,11 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                     <span className="text-sm font-medium">
                       Flexible Working
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.disabilityStats?.flexibleWorking
-                        ? "Available"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={companyData.disabilityStats?.flexibleWorking}
+                      dataCategory="disabilityStats"
+                      specificStat="flexibleWorking"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -166,11 +167,13 @@ export const DisabilityStats = ({ companyData }: DisabilityStatsProps) => {
                     <span className="text-sm font-medium">
                       Disability Confident
                     </span>
-                    <span className="text-sm text-gray-500">
-                      {companyData.disabilityStats?.disabilityConfident
-                        ? "Certified"
-                        : "Not reported"}
-                    </span>
+                    <CompanyListItem
+                      dataPoint={
+                        companyData.disabilityStats?.disabilityConfident
+                      }
+                      dataCategory="disabilityStats"
+                      specificStat="disabilityConfident"
+                    />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
