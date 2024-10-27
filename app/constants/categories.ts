@@ -1,14 +1,19 @@
-export const diversities = ["Ethnicity", "Gender", "Disabilities", "LGBTQ"];
+export const identity = [
+  "Gender",
+  "Race",
+  "Ethnicity",
+  "Disability",
+  "LGBTQ+",
+  "Veterans",
+  "Age",
+];
 
-export const industries = [
-  "Healthcare",
+export const industryCategories = [
   "Technology",
+  "Healthcare",
   "Finance",
-  "Education",
   "Retail",
   "Manufacturing",
-  "Hospitality",
-  "Nonprofit",
-  "Media and Entertainment",
-  "Government",
+  "Education",
+  "Non-Profit",
 ];
