@@ -11,6 +11,7 @@ import {
 import { useCompany } from "@/context/CompanyContext";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { AlertCircle } from "lucide-react";
 
 interface ReportMissingDataProps {
   metric: string;
@@ -39,8 +40,11 @@ export const ReportMissingData = ({ metric }: ReportMissingDataProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <span className="text-sm text-gray-500 cursor-pointer hover:text-gray-700 hover:underline">
-          Not reported
+        <span className="group inline-flex items-center gap-1.5 text-sm text-gray-500 cursor-pointer hover:text-gray-700">
+          <span className="underline underline-offset-4 decoration-gray-300 group-hover:decoration-gray-500">
+            Not reported
+          </span>
+          <AlertCircle className="w-4 h-4" />
         </span>
       </DialogTrigger>
       <DialogContent>
