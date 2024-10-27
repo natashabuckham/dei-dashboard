@@ -2,7 +2,7 @@
 
 <h2>Foundations 📊</h2>
 
-🏆 Winner [Jump Start Hackathon](https://www.hackathonparty.com/hackathons/6) 🏆
+🏆 [Winner, Jump Start Hackathon]([https://www.hackathonparty.com/hackathons/6](https://www.hackathonparty.com/hackathons/6/projects/98)) 🏆
 
 <h3>Team Members</h3>
 
