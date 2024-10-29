@@ -10,7 +10,7 @@
 
 <h3>Team Members</h3>
 
-[Agrahad James](https://www.linkedin.com/in/angharad-james-b5842b19a/)
+[Angharad James](https://www.linkedin.com/in/angharad-james-b5842b19a/)
 [Isabella Mitchell](https://github.com/Isabella-Mitchell)
 [Natasha Buckham](https://github.com/natashabuckham)
 [Ruksan Emirali](https://www.linkedin.com/in/ruksan-emirali-3703912a1/)
